@@ -152,5 +152,29 @@ namespace NerdStore.Core.DomainObjects
                 throw new DomainException(mensagem);
             }
         }
+
+        public static void ValidarSeMenorIgualMinimo(int valor, int minimo, string mensagem)
+        {
+            if(valor <= minimo)
+            {
+                throw new DomainException(mensagem);
+            }
+        }
+
+        public static void ValidarSeMenorIgualMinimo(double valor, double minimo, string mensagem)
+        {
+            if (valor <= minimo)
+            {
+                throw new DomainException(mensagem);
+            }
+        }
+
+        public static void ValidarSeMenorIgualMinimo(decimal valor, decimal minimo, string mensagem)
+        {
+            if (valor <= minimo)
+            {
+                throw new DomainException(mensagem);
+            }
+        }
     }
 }
