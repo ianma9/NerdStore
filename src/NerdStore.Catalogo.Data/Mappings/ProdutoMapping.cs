@@ -1,9 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using NerdStore.Catalogo.Domain;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace NerdStore.Catalogo.Data.Mappings
 {
@@ -11,31 +8,31 @@ namespace NerdStore.Catalogo.Data.Mappings
     {
         public void Configure(EntityTypeBuilder<Produto> builder)
         {
-            builder.HasKey(p => p.Id);
+            builder.HasKey(c => c.Id);
 
-            builder.Property(p => p.Nome)
+            builder.Property(c => c.Nome)
                 .IsRequired()
-                .HasColumnType("varchar(250");
-            
-            builder.Property(p => p.Descricao)
-                .IsRequired()
-                .HasColumnType("varchar(250");
+                .HasColumnType("varchar(250)");
 
-            builder.Property(p => p.Imagem)
+            builder.Property(c => c.Descricao)
                 .IsRequired()
-                .HasColumnType("varchar(250");
+                .HasColumnType("varchar(500)");
 
-            builder.OwnsOne(p => p.Dimensoes, dm =>
+            builder.Property(c => c.Imagem)
+                .IsRequired()
+                .HasColumnType("varchar(250)");
+
+            builder.OwnsOne(c => c.Dimensoes, cm =>
             {
-                dm.Property(c => c.Altura)
+                cm.Property(c => c.Altura)
                     .HasColumnName("Altura")
                     .HasColumnType("int");
 
-                dm.Property(c => c.Largura)
+                cm.Property(c => c.Largura)
                     .HasColumnName("Largura")
                     .HasColumnType("int");
 
-                dm.Property(c => c.Profundidade)
+                cm.Property(c => c.Profundidade)
                     .HasColumnName("Profundidade")
                     .HasColumnType("int");
             });
