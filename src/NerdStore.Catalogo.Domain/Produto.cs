@@ -1,4 +1,5 @@
 ﻿using System;
+using NerdStore.Catalogo.Domain.ValueObjects;
 using NerdStore.Core.DomainObjects;
 using NerdStore.Core.Exceptions;
 
