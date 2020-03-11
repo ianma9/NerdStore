@@ -1,5 +1,4 @@
-﻿using NerdStore.Core.Exceptions;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 
 namespace NerdStore.Core.DomainObjects
 {

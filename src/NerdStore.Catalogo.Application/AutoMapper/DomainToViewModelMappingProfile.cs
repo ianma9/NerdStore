@@ -4,6 +4,7 @@ using System.Text;
 using AutoMapper;
 using NerdStore.Catalogo.Application.ViewModels;
 using NerdStore.Catalogo.Domain;
+using NerdStore.Catalogo.Domain.Entities;
 
 namespace NerdStore.Catalogo.Application.AutoMapper
 {

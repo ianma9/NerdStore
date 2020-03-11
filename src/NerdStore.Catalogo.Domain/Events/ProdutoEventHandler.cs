@@ -1,6 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
+using NerdStore.Catalogo.Domain.Repositories;
 
 namespace NerdStore.Catalogo.Domain.Events
 {
