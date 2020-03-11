@@ -35,5 +35,6 @@ namespace NerdStore.Vendas.Application.Commands
                     .WithMessage("Id do produto inválido");
             }
         }
+
     }
 }
