@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using NerdStore.Core.Communication.Mediator;
 using NerdStore.Core.DomainObjects;
 
@@ -13,11 +14,13 @@ namespace NerdStore.Vendas.Data
                 .Entries<Entity>()
                 .Where(x => x.Entity.Notificacoes != null && x.Entity.Notificacoes.Any());
 
-            var domainEvents = domainEntities
+            var entityEntries = domainEntities as EntityEntry<Entity>[] ?? domainEntities.ToArray();
+            
+            var domainEvents = entityEntries
                 .SelectMany(x => x.Entity.Notificacoes)
                 .ToList();
 
-            domainEntities.ToList()
+            entityEntries.ToList()
                 .ForEach(entity => entity.Entity.LimparEventos());
 
             var tasks = domainEvents
